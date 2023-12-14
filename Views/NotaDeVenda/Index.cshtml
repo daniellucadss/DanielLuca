@@ -1,0 +1,79 @@
+@model IEnumerable<DanielLuca.Models.NotaDeVenda>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transportadora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoDePagamentoId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendedor.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transportadora.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDePagamento.Tipo)
+            </td>
+            <td>
+                 <div class = "w-75 btn-group" role = "group">
+                    <a asp-controller = "NotaDeVenda" asp-action = "Edit" asp-route-id = "@item.Id" class = "btn btn-outline-primary border mx-2">
+                        <i class="bi bi-pencil-square"></i> Editar
+                    </a>
+                    <a asp-controller = "NotaDeVenda" asp-action = "Details" asp-route-id = "@item.Id" class = "btn btn-outline-primary border mx-2">
+                        <i class="bi bi-search"></i> Detalhes
+                    </a>
+                    <a asp-controller = "NotaDeVenda" asp-action = "Delete" asp-route-id = "@item.Id" class = "btn btn-outline-danger border mx-2">
+                        <i class="bi bi-trash"></i> Excluir
+                    </a>
+                    <a asp-controller = "NotaDeVenda" asp-action = "DevolverNota" asp-route-id = "@item.Id" class = "btn btn-outline-yellow border mx-2">
+                        <i class="bi bi-arrow-return-left"></i> Devolver
+                    </a>
+                    <a asp-controller = "NotaDeVenda" asp-action = "CancelarNota" asp-route-id = "@item.Id" class = "btn btn-outline-danger border mx-2">
+                        <i class="bi bi-x-lg"></i> Cancelar
+                    </a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

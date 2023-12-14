@@ -1,0 +1,50 @@
+@model IEnumerable<DanielLuca.Models.Vendedor>
+
+@{
+    ViewData["Title"] = "Lista de Vendedores";
+}
+
+<div class = "container">
+    <div class = "row pt-4 pb-3">
+        <div class = "col-6">
+            <h2 class = "text-primary">
+                Lista de Vendedores
+            </h2>
+        </div>
+        <div class = "col-6 text end">
+            <a asp-controller = "Vendedor" asp-action = "Create" class = "btn btn-outline-primary border">
+                <i class="bi bi-plus-circle"></i> Novo Vendedor
+            </a>
+        </div>
+    </div>
+    <table class = "table table-striped">
+        <thead>
+        <tr>
+            <th>
+                Nome do Vendedor
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model) 
+            {
+                <tr>
+                    <td>@obj.Nome</td>
+                    <td>
+                        <div class = "w-75 btn-group" role = "group">
+                            <a asp-controller = "Vendedor" asp-action = "Edit" asp-route-id = "@obj.Id" class = "btn btn-outline-primary border mx-2">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                            <a asp-controller = "Vendedor" asp-action = "Details" asp-route-id = "@obj.Id" class = "btn btn-outline-primary border mx-2">
+                                <i class="bi bi-search"></i> Detalhes
+                            </a>
+                            <a asp-controller = "Vendedor" asp-action = "Delete" asp-route-id = "@obj.Id" class = "btn btn-outline-danger border mx-2">
+                                <i class="bi bi-trash"></i> Excluir
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table> 
+</div>

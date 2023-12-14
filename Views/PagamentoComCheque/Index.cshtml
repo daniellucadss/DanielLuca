@@ -1,0 +1,58 @@
+@model IEnumerable<DanielLuca.Models.PagamentoComCheque>
+
+@{
+    ViewData["Title"] = "Lista de Pagamentos com Cheque";
+}
+
+<div class = "container">
+    <div class = "row pt-4 pb-3">
+        <div class = "col-6">
+            <h2 class = "text-primary">
+                Lista de Pagamentos com Cheque
+            </h2>
+        </div>
+        <div class = "col-6 text end">
+            <a asp-controller = "PagamentoComCheque" asp-action = "Create" class = "btn btn-outline-primary border">
+                <i class="bi bi-plus-circle"></i> Novo Pagamento com Cheque
+            </a>
+        </div>
+    </div>
+    <table class = "table table-striped">
+        <thead>
+        <tr>
+            <th>
+                Número do Banco
+            </th>
+            <th>
+                Nome do Banco
+            </th>
+            <th>
+                Nome do Cobrado
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model) 
+            {
+                <tr>
+                    <td>@obj.NumeroDoBanco</td>
+                    <td>@obj.NomeDoBanco</td>
+                    <td>@obj.NomeDoCobrado</td>
+                    <td>
+                        <div class = "w-75 btn-group" role = "group">
+                            <a asp-controller = "PagamentoComCheque" asp-action = "Edit" asp-route-id = "@obj.Id" class = "btn btn-outline-primary border mx-2">
+                                <i class="bi bi-pencil-square"></i> Editar
+                            </a>
+                            <a asp-controller = "PagamentoComCheque" asp-action = "Details" asp-route-id = "@obj.Id" class = "btn btn-outline-primary border mx-2">
+                                <i class="bi bi-search"></i> Detalhes
+                            </a>
+                            <a asp-controller = "PagamentoComCheque" asp-action = "Delete" asp-route-id = "@obj.Id" class = "btn btn-outline-danger border mx-2">
+                                <i class="bi bi-trash"></i> Excluir
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table> 
+</div>

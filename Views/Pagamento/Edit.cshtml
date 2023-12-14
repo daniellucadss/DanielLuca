@@ -1,0 +1,50 @@
+@model DanielLuca.Models.Pagamento
+
+@{
+    ViewData["Title"] = "Atualizar Pagamento";
+}
+
+<form method = "post">
+    <div class = "border p-3 mt-4">
+        <div class = "row pb-2">
+            <h2 class = "text-primary">Atualizar Pagamento</h2>
+            <hr/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <<label asp-for="DataLimite" class="control-label"></label>
+            <input asp-for = "DataLimite" type = "text" class = "form-control"/>
+            <span asp-validation-for = "DataLimite" class = "text-danger"></span>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Valor" class = "p-0"></label>
+            <input asp-for = "Valor" type = "text" class = "form-control"/>
+            <span asp-validation-for = "Valor" class = "text-danger"></span>
+        </div>
+         <div class="mb-3 row p-1">
+            <div class="form-check">
+                <input asp-for="Pago" class="form-check-input" />
+                <label class="form-check-label" asp-for="Pago"></label>
+                <span asp-validation-for = "Valor" class = "text-danger"></span>
+            </div>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "NotaDeVendaId" class = "p-0"></label>
+            <select asp-for="NotaDeVendaId" class ="form-control" asp-items="ViewBag.NotaDeVendaId">
+                <option disabled selected>Selecione uma Nota De Venda</option>
+            </select>
+            <span asp-validation-for = "NotaDeVendaId" class = "text-danger"></span>
+        </div>
+        <div class = "row">
+            <div class = "col-6 col-md-3">
+                <button type = "submit" class = "btn btn-outline-primary border form-control">Atualizar</button>
+            </div>
+            <div class = "col-6 col-md-3">
+                <a asp-controller= "Pagamento" asp-action= "Index" class = "btn btn-outline-danger border form-control">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

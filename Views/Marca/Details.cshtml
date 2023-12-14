@@ -1,0 +1,40 @@
+@model DanielLuca.Models.Marca
+
+@{
+    ViewData["Title"] = "Detalhes da Marca";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-primary">Detalhes da Marca</h2>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+        </div>
+        <div class="col-md-10">
+            <dd>@Html.DisplayFor(model => model.Nome)</dd>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <dt>@Html.DisplayNameFor(model => model.Descricao)</dt>
+        </div>
+        <div class="col-md-10">
+            <dd>@Html.DisplayFor(model => model.Descricao)</dd>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <a asp-controller="Marca" asp-action = "Index" class = "btn btn-outline-primary border form-control">Voltar</a>
+        </div>
+        <div class="col-md-3">
+            <a asp-controller = "Marca" asp-action = "Edit" asp-route-id = "@Model.Id" class = "btn btn-outline-primary border form-control">
+                <i class="bi bi-pencil-square"></i> Editar
+            </a>
+        </div>
+    </div>
+</div>

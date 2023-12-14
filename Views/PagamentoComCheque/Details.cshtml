@@ -1,0 +1,56 @@
+@model DanielLuca.Models.PagamentoComCheque
+
+@{
+    ViewData["Title"] = "Detalhes do Pagamento com Cheque";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-primary">Detalhes do Pagamento com Cheque</h2>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <dt>@Html.DisplayNameFor(model => model.NumeroDoBanco)</dt>
+        </div>
+        <div class="col-md-10">
+            <dd>@Html.DisplayFor(model => model.NumeroDoBanco)</dd>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <dt>@Html.DisplayNameFor(model => model.NomeDoBanco)</dt>
+        </div>
+        <div class="col-md-10">
+            <dd>@Html.DisplayFor(model => model.NomeDoBanco)</dd>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <dt>@Html.DisplayNameFor(model => model.NomeDoCobrado)</dt>
+        </div>
+        <div class="col-md-10">
+            <dd>@Html.DisplayFor(model => model.NomeDoCobrado)</dd>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <dt>@Html.DisplayNameFor(model => model.InformacoesAdicionais)</dt>
+        </div>
+        <div class="col-md-10">
+            <dd>@Html.DisplayFor(model => model.InformacoesAdicionais)</dd>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <a asp-controller="PagamentoComCheque" asp-action = "Index" class = "btn btn-outline-primary border form-control">Voltar</a>
+        </div>
+        <div class="col-md-3">
+            <a asp-controller = "PagamentoComCheque" asp-action = "Edit" asp-route-id = "@Model.Id" class = "btn btn-outline-primary border form-control">
+                <i class="bi bi-pencil-square"></i> Editar
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+@model DanielLuca.Models.PagamentoComCartao
+
+@{
+    ViewData["Title"] = "Atualizar Pagamento com Cartão";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Atualizar Pagamento com Cartão</h2>
+            <hr />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="NumeroDoCartao" class="p-0"></label>
+            <input asp-for="NumeroDoCartao" type="text" class="form-control" />
+            <span asp-validation-for="NumeroDoCartao" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Bandeira" class="p-0"></label>
+            <input asp-for="Bandeira" type="text" class="form-control" />
+            <span asp-validation-for="Bandeira" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="NomeDoCobrado" class="p-0"></label>
+            <input asp-for="NomeDoCobrado" type="text" class="form-control" />
+            <span asp-validation-for="NomeDoCobrado" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="InformacoesAdicionais" class="p-0"></label>
+            <input asp-for="InformacoesAdicionais" type="text" class="form-control" />
+            <span asp-validation-for="InformacoesAdicionais" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-outline-primary border form-control">Atualizar</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="PagamentoComCartao" asp-action="Index" class="btn btn-outline-danger border form-control">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

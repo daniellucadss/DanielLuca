@@ -1,0 +1,43 @@
+@model DanielLuca.Models.Produto
+
+@{
+    ViewData["Title"] = "Excluir Produto";
+}
+
+<form method = "post">
+    <div class = "border p-3 mt-4">
+        <div class = "row pb-2">
+            <h2 class = "text-primary">Excluir Produto</h2>
+            <hr/>
+
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Nome" class = "p-0"></label>
+            <input asp-for = "Nome" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Descricao" class = "p-0"></label>
+            <input asp-for = "Descricao" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Quantidade" class = "p-0"></label>
+            <input asp-for = "Quantidade" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Preco" class = "p-0"></label>
+            <input asp-for = "Preco" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "MarcaId" class = "p-0"></label>
+            <input asp-for = "Marca.Nome" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "row">
+            <div class = "col-6 col-md-3">
+                <button type = "submit" class = "btn btn-outline-danger border form-control" >Excluir</button>
+            </div>
+            <div class = "col-6 col-md-3">
+                <a asp-controller= "Produto" asp-action= "Index" class = "btn btn-outline-primary border form-control">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>

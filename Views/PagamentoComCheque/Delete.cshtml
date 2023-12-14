@@ -1,0 +1,38 @@
+@model DanielLuca.Models.PagamentoComCheque
+
+@{
+    ViewData["Title"] = "Excluir Pagamento Com Cheque";
+}
+
+<form method = "post">
+    <div class = "border p-3 mt-4">
+        <div class = "row pb-2">
+            <h2 class = "text-primary">Excluir Pagamento Com Cheque</h2>
+            <hr/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "NumeroDoBanco" class = "p-0"></label>
+            <input asp-for = "NumeroDoBanco" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "NomeDoBanco" class = "p-0"></label>
+            <input asp-for = "NomeDoBanco" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "NomeDoCobrado" class = "p-0"></label>
+            <input asp-for = "NomeDoCobrado" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "InformacoesAdicionais" class = "p-0"></label>
+            <input asp-for = "InformacoesAdicionais" disabled type = "text" class = "form-control"/>
+        </div>
+        <div class = "row">
+            <div class = "col-6 col-md-3">
+                <button type = "submit" class = "btn btn-outline-danger border form-control" >Excluir</button>
+            </div>
+            <div class = "col-6 col-md-3">
+                <a asp-controller= "PagamentoComCheque" asp-action= "Index" class = "btn btn-outline-primary border form-control">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>

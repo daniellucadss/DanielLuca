@@ -1,0 +1,55 @@
+@model DanielLuca.Models.Item
+
+@{
+    ViewData["Title"] = "Cadastrar Item";
+}
+
+<form method = "post">
+    <div class = "border p-3 mt-4">
+        <div class = "row pb-2">
+            <h2 class = "text-primary">Cadastrar Item</h2>
+            <hr/>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Preco" class = "p-0"></label>
+            <input asp-for = "Preco" type = "text" class = "form-control"/>
+            <span asp-validation-for = "Preco" class = "text-danger"></span>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Percentual" class = "p-0"></label>
+            <input asp-for = "Percentual" type = "text" class = "form-control"/>
+            <span asp-validation-for = "Percentual" class = "text-danger"></span>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "Quantidade" class = "p-0"></label>
+            <input asp-for = "Quantidade" type = "text" class = "form-control"/>
+            <span asp-validation-for = "Quantidade" class = "text-danger"></span>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "ProdutoId" class = "p-0"></label>
+            <select asp-for="ProdutoId" class ="form-control" asp-items="ViewBag.ProdutoId">
+                <option disabled selected>Selecione um Produto</option>
+            </select>
+            <span asp-validation-for = "ProdutoId" class = "text-danger"></span>
+        </div>
+        <div class = "mb-3 row p-1">
+            <label asp-for = "NotaDeVendaId" class = "p-0"></label>
+            <select asp-for="NotaDeVendaId" class ="form-control" asp-items="ViewBag.NotaDeVendaId">
+                <option disabled selected>Selecione uma Nota De Venda</option>
+            </select>
+            <span asp-validation-for = "NotaDeVendaId" class = "text-danger"></span>
+        </div>
+        <div class = "row">
+            <div class = "col-6 col-md-3">
+                <button type = "submit" class = "btn btn-outline-primary border form-control">Cadastrar</button>
+            </div>
+            <div class = "col-6 col-md-3">
+                <a asp-controller= "Item" asp-action= "Index" class = "btn btn-outline-danger border form-control">Cancelar</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
